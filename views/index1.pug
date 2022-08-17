@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+  title secret santa 
+  style 
+    include ../static/style1.css
+  body
+    h1 Secret Santa
+    .signhd
+      strong Sign-up
+    .container
+      .box1
+        form(action="/register", method="POST")
+          ul
+            li(type='none')
+              strong First Name:
+              |  
+              br
+              |  
+              input(type='text', placeholder='First Name', name='firstname')
+            li(type='none')
+              strong Last Name:
+              |  
+              br
+              |  
+              input(type='text', placeholder='Last Name', name='lastname')
+            li(type='none')
+              strong Mobile No:
+              |  
+              br
+              |  
+              input(type='number', placeholder='Mobile No', name='mobileno')
+            li(type='none')
+              strong Email:
+              |  
+              br
+              |  
+              input(type='email', placeholder='Email', name='email')
+            li(type='none')
+              strong Password:
+              br
+              |  
+              input#password(type='password', placeholder='Password', name='password')
+            li(type='none')
+              strong Confirm Password:
+              br
+              |  
+              input#repassword(type='password', placeholder='Re-enter your Password', name='repassword')
+          #signup
+            input#ent(type='submit', value='signup')
+    .acc1
+      | Already have a account?,
+      a(href='/sign-in') Sign-In

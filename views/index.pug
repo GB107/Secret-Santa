@@ -1,0 +1,32 @@
+doctype html 
+html
+  head
+  title secret santa 
+  style 
+    include ../static/style.css
+  body
+    h1 Secret Santa
+    .sign
+      strong Sign-In
+    .container
+      .box
+        form(action="/login", method="post")
+          ul
+            
+            li(type='none')
+              strong Email:
+              |  
+              br
+              |  
+              input(type='email', placeholder='Email', name='email')
+            li(type='none')
+              strong Password:
+              br
+              |  
+              input#password(type='password', placeholder='Password', name='password')
+           
+          #login 
+            input#ent1(type='submit', value='signin')
+    .acc
+      | Don't have a account?,
+      a(href='/sign-up') Sign-Up

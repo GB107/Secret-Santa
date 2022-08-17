@@ -1,0 +1,179 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Secret santa
+    style.
+      nav{
+      margin-top: -16px;
+      display: flex;
+      font-weight: bolder;
+      }
+      ul{
+      display: flex;
+      margin-top: 25px;
+      position: absolute;
+      right: 0px;
+      }
+      li{
+      padding-right: 25px;
+      }
+      .welcome{
+      display: flex;
+      justify-content: center;
+      margin-top: 100px;
+      font-size: 28px;
+      }
+      #profile{
+      display: none;
+      justify-content: flex-end;
+      position: absolute;
+      right: 100px;
+      background-color: red;
+      }
+      .container{
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      }
+      .heading{
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+      font-size: 23px;
+      font-weight: bold;
+      }
+      .invite{
+      margin-top: 25px;
+      margin-left:100px;
+      border: 3px solid white;
+      height: 150px;
+      width: 300px;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      }
+      .create{
+      margin-top: 25px;
+      margin-right: 25px;
+      border: 3px solid white;
+      height: 150px;
+      width: 300px;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      }
+      br   {
+      margin-top: 18px;
+      margin-left: 50px;
+      }
+      #code{
+      margin-left: 55px;
+      }
+      input{
+      margin-top:20px
+      }
+      #jo{
+      margin-top: 18px;
+      /* margin-left: 0px; */
+      }
+      #cr{
+        margin-top:55px
+      }
+      body{
+      background-image: url(https://images.unsplash.com/photo-1515261439133-0f6cfb098e04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+      color: white;
+      background-size: contain;
+      }
+      button{
+      background-color: aqua;
+      border-radius: 8px;
+      }
+      .box{
+      background-color: #ec51c49e;
+      color: black;
+      width: 250px;
+      margin-top: -200px;
+      border: 2px solid red;
+      }
+      .container2{
+      display: none;
+      justify-content: center;
+      }
+      #close{
+        position:relative;
+        right:-200px;
+        bottom:20px;
+      }
+  body
+    // <img src="https://www.pexels.com/photo/red-white-and-brown-gift-boxes-1303081/" alt="error lloading">
+    nav
+      h2 secret santa
+      ul
+        li#touch(type='none') Profile
+        li(type='none')
+          button
+            a(href='/logout') logout
+    #profile.profile
+      | Name:#{userName}
+      br
+      | Email:#{Email}
+    .welcome Welcome #{userName}
+    .heading Join or Create a Group
+    .container
+      .create
+        | Create a Group
+        br
+        button#cr(onclick='popout()') Create Group
+      .invite
+        | Join a Group using code
+        br#code
+        | code
+        input(type='text')
+        br
+        div
+          button#jo Join Group
+    #container2.container2
+      .box
+        form(action='/creategrp',method='post')
+          li(type='none')
+            strong Group Name:
+            |  
+            br
+            |  
+            input(type='text', placeholder='Enter your group name', name='grpname')
+          li(type='none')
+            strong Location:
+            br
+            |  
+            input(type='text', placeholder='Enter your location', name='location')
+          li(type='none')
+            strong Budget:
+            br
+            |  
+            input(type='number', placeholder='Enter your Budget', name='budget')
+          #creategrp
+            input#ent1(type='submit', value='Create')
+            | &gt;
+        button#close(onclick='cl()') close
+        ul
+    script.
+      const profile=document.getElementById('profile');
+      const touch=document.getElementById('touch')
+      const container=document.getElementById('container2')
+      touch.addEventListener("mousemove",function(){
+      profile.style.display ='flex';
+      })
+      touch.addEventListener("mouseout",function(){
+      profile.style.display ='none';
+      })
+      function popout(){
+      container.style.display='flex';
+      }
+      function cl(){
+      container.style.display='none';
+      }
